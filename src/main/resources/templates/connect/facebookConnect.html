@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Social | Facebook</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>       
+        We are NOT connected to Facebook right now.<br/>
+        <form role="form" action="/connect/facebook" method="POST">
+            <input type="hidden" name="scope" value="user_posts" />
+            <button type="submit"> Try Again</button>                              
+        </form> 
+
+    </body>
+</html>

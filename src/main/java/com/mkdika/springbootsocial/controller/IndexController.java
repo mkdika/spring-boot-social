@@ -1,8 +1,9 @@
 package com.mkdika.springbootsocial.controller;
 
+import javax.inject.Inject;
+import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -10,13 +11,19 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Maikel Chandika <mkdika@gmail.com>
  */
 @Controller
-@RequestMapping({"", "/", "index"})
 public class IndexController {
     
-    @RequestMapping(method = GET)
+    private ConnectionRepository connectionRepository;
+
+    @Inject
+    public IndexController(ConnectionRepository connectionRepository) {        
+        this.connectionRepository = connectionRepository;
+    }
+        
+    @GetMapping("/")
     public ModelAndView getIndexPage() {
         ModelAndView modelAndView = new ModelAndView();   
         modelAndView.setViewName("index");
         return modelAndView;
-    }    
+    }         
 }
