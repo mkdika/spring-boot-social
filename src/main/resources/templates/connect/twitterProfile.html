@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Social | Twitter</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>        
+        <div th:if="${twitterProfile != null}">
+            <img alt="profile image"  th:src="${twitterProfile.profileImageUrl}" width="100" height="100"/>
+            <br/>
+            <h3>Hello, <span th:text="${twitterProfile.name}"> Some User</span>!</h3>                        
+            <dl>
+                <dt>Twitter ID:</dt>
+                <dd th:text="${twitterProfile.id}"></dd>                       
+                <dt>Screen Name:</dt>
+                <dd th:text="${twitterProfile.screenName}"></dd>                       
+            </dl>
+        </div>
+        <div th:unless="${twitterProfile != null}">
+            We are NOT connected!!!
+        </div>
+    </body>
+</html>

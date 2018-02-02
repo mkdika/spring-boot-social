@@ -7,9 +7,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
-    <body>
+    <body>        
         <div th:if="${facebookProfile != null}">
+            <img alt="profile image"  th:src="'data:image/jpg;base64,'+${pic}" width="100" height="100"/>
+            <br/>
             <h3>Hello, <span th:text="${facebookProfile.name}"> Some User</span>!</h3>                        
+            <dl>
+                <dt>Facebook ID:</dt>
+                <dd th:text="${facebookProfile.id}"></dd>
+                <dt>First Name:</dt>
+                <dd th:text="${facebookProfile.firstName}"></dd>
+                <dt>Last Name:</dt>
+                <dd th:text="${facebookProfile.lastName}"></dd>
+                <dt>Email:</dt>
+                <dd th:text="${facebookProfile.email}"></dd>                
+            </dl>
         </div>
         <div th:unless="${facebookProfile != null}">
             We are NOT connected!!!

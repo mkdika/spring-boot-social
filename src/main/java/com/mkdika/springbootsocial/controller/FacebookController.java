@@ -1,10 +1,10 @@
 package com.mkdika.springbootsocial.controller;
 
+import java.util.Base64;
 import javax.inject.Inject;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,11 +25,14 @@ public class FacebookController {
     }
 
     @GetMapping("/facebook")
-    public String facebookController(Model model) {
-        if (connectionRepository.findPrimaryConnection(Facebook.class) != null) {
-            model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());
+    public ModelAndView facebookController() {
+        ModelAndView model = new ModelAndView();
+        if (connectionRepository.findPrimaryConnection(Facebook.class) != null) {            
+            model.addObject("pic",Base64.getEncoder().encodeToString(facebook.userOperations().getUserProfileImage()));
+            model.addObject("facebookProfile", facebook.userOperations().getUserProfile());            
         }
-        return "connect/facebookProfile";
+        model.setViewName("connect/facebookProfile");
+        return model;
     }
 
 }
