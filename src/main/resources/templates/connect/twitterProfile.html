@@ -6,21 +6,38 @@
         <title>Spring Social | Twitter</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" 
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+              crossorigin="anonymous" />
     </head>
-    <body>        
-        <div th:if="${twitterProfile != null}">
-            <img alt="profile image"  th:src="${twitterProfile.profileImageUrl}" width="100" height="100"/>
-            <br/>
-            <h3>Hello, <span th:text="${twitterProfile.name}"> Some User</span>!</h3>                        
-            <dl>
-                <dt>Twitter ID:</dt>
-                <dd th:text="${twitterProfile.id}"></dd>                       
-                <dt>Screen Name:</dt>
-                <dd th:text="${twitterProfile.screenName}"></dd>                       
-            </dl>
-        </div>
-        <div th:unless="${twitterProfile != null}">
-            We are NOT connected!!!
+    <body>  
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4"> 
+                    <br/>
+                    <div th:if="${twitterProfile != null}">
+                        <div class="text-center">
+                            <img alt="profile image" class="img-circle"  th:src="${twitterProfile.profileImageUrl}" width="100" height="100"/>                            
+                        </div>                        
+                        <br/>
+                        <div class="page-header text-center">
+                            <h3>Hello, <span th:text="${twitterProfile.name}"> Some User</span></h3>                         
+                        </div>                        
+                        <dl class="text-center">
+                            <dt>Twitter ID:</dt>
+                            <dd th:text="${twitterProfile.id}"></dd>                       
+                            <dt>Screen Name:</dt>
+                            <dd th:text="${twitterProfile.screenName}"></dd>                
+                        </dl>
+                    </div>
+                    <div th:unless="${twitterProfile != null}">
+                        <div class="alert alert-warning" role="alert">
+                            We are NOT connected!!!
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

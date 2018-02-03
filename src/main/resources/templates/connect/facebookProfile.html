@@ -6,25 +6,42 @@
         <title>Spring Social | Facebook</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" 
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+              crossorigin="anonymous" />
     </head>
-    <body>        
-        <div th:if="${facebookProfile != null}">
-            <img alt="profile image"  th:src="'data:image/jpg;base64,'+${pic}" width="100" height="100"/>
-            <br/>
-            <h3>Hello, <span th:text="${facebookProfile.name}"> Some User</span>!</h3>                        
-            <dl>
-                <dt>Facebook ID:</dt>
-                <dd th:text="${facebookProfile.id}"></dd>
-                <dt>First Name:</dt>
-                <dd th:text="${facebookProfile.firstName}"></dd>
-                <dt>Last Name:</dt>
-                <dd th:text="${facebookProfile.lastName}"></dd>
-                <dt>Email:</dt>
-                <dd th:text="${facebookProfile.email}"></dd>                
-            </dl>
-        </div>
-        <div th:unless="${facebookProfile != null}">
-            We are NOT connected!!!
+    <body>     
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4"> 
+                    <br/>
+                    <div th:if="${facebookProfile != null}">
+                        <div class="text-center">
+                            <img alt="profile image" class="img-circle" th:src="'data:image/jpg;base64,'+${pic}" width="100" height="100"/>
+                        </div>                        
+                        <br/>
+                        <div class="page-header text-center">
+                            <h3>Hello, <span th:text="${facebookProfile.name}"></span></h3>                        
+                        </div>                        
+                        <dl class="text-center">
+                            <dt>Facebook ID:</dt>
+                            <dd th:text="${facebookProfile.id}"></dd>
+                            <dt>First Name:</dt>
+                            <dd th:text="${facebookProfile.firstName}"></dd>
+                            <dt>Last Name:</dt>
+                            <dd th:text="${facebookProfile.lastName}"></dd>
+                            <dt>Email:</dt>
+                            <dd th:text="${facebookProfile.email}"></dd>                
+                        </dl>
+                    </div>
+                    <div th:unless="${facebookProfile != null}">
+                        <div class="alert alert-warning" role="alert">
+                            We are NOT connected!!!
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

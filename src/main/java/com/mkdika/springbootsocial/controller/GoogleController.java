@@ -1,8 +1,7 @@
 package com.mkdika.springbootsocial.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -10,13 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Maikel Chandika <mkdika@gmail.com>
  */
 @Controller
-@RequestMapping({"social/google"})
 public class GoogleController {
 
-    @RequestMapping(method = GET)
+    @GetMapping("connect/google")
     public ModelAndView getGooglePage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("social/google");
+        modelAndView.setViewName("connect/google");
         return modelAndView;
     }
 }
