@@ -3,7 +3,7 @@
 
 Example project for [Spring Boot](https://projects.spring.io/spring-boot/) and [Spring Social](https://projects.spring.io/spring-social/).
 
-![Imgur](https://i.imgur.com/E0DD0lV.gifv)
+![Imgur](https://i.imgur.com/E0DD0lV.gif)
 
 This project consist of 3 different social network resource sharing (OAuth):
 
@@ -50,6 +50,6 @@ Then access application URL from browser [http://localhost:8000](http://localhos
 
 ### Relevant Article & References
 
-- - [A Secondary Facebook Login with Spring Social](http://www.baeldung.com/facebook-authentication-with-spring-security-and-social)
+- [A Secondary Facebook Login with Spring Social](http://www.baeldung.com/facebook-authentication-with-spring-security-and-social)
 - [Spring Social Twitter Setup](http://www.baeldung.com/spring_social_twitter_setup)
 - [Spring Social Google - Example](https://github.com/spring-social/spring-social-google-example)
